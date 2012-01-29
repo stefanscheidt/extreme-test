@@ -1,0 +1,22 @@
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'groovy'
+
+mainClassName = "extreme.test.Server"
+sourceCompatibility = '1.6'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    groovy 'org.codehaus.groovy:groovy:1.8.5'
+    testCompile 'junit:junit:4.10'
+}
+
+idea {
+    project {
+        jdkName = '1.6'
+        languageLevel = '1.6'
+    }
+}
