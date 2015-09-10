@@ -7,6 +7,8 @@ class ServerTest {
     
     @Test
     void init_noSystemPropsSet_shouldInitWithDefaults() {
+        System.clearProperty 'extreme.name'
+        System.clearProperty 'extreme.port'
         Server server = new Server()
         assert server.name == System.properties['user.name']
         assert server.port == 8080
@@ -16,8 +18,8 @@ class ServerTest {
     void init_SystemPropsSet_shouldInitWithProps() {
         def name = "some name"
         def port = "8181"
-        System.properties['name'] = name
-        System.properties['port'] = port
+        System.properties['extreme.name'] = name
+        System.properties['extreme.port'] = port
         Server server = new Server()
         assert server.name == name
         assert server.port == port as int

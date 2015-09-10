@@ -1,15 +1,9 @@
 # Extreme Startup Test Server #
 
-Create IDEA project and module files:
-
-    gradle idea
-
 Build:
 
     gradle build
 
-Create distribution:
+Run:
 
-    gradle distZip
-
-Will create distributable ZIP archive in `build/distributions`.
+    gradle run
