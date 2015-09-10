@@ -1,15 +1,3 @@
-# Extreme Startup Test Server #
+# Extreme Startup Starter Project #
 
-Create IDEA project and module files:
-
-    gradle idea
-
-Build:
-
-    gradle build
-
-Create distribution:
-
-    gradle distZip
-
-Will create distributable ZIP archive in `build/distributions`.
+Various starter projects for [Extreme Startup](https://github.com/rchatley/extreme_startup).
