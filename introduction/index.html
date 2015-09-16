@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 
 	<head>
 		<meta charset="utf-8">
 
-		<title>Extreme Startup - Introduction</title>
+		<title>Extreme Startup - SD-/MSA-Days 2015</title>
 
-		<meta name="description" content="A short introduction to the Extreme Startup programming game">
+		<meta name="description" content="Einführung in das Extreme Startup Programmierspiel auf den SD-/MSA-Days 2015 bei OPITZ Consulting">
 		<meta name="author" content="Torsten Mandry">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,99 +40,153 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-markdown>
-					## Extreme Startup
-					SD-/MSA-Days 2015
+				<section>
+					<h1>Extreme Startup</h1>
+					<h2>SD-/MSA-Days 2015</h2>
 				</section>
 
-				<section data-markdown>
-					## Kurze Einführung
+				<section>
+					<h2>Extreme Startup?</h2>
+					<h3 class="fragment">Was zum Teufel ist das?</h3>
 				</section>
 
-				<section data-markdown>
-					## Was ist Extreme Startup?
-
-					*Extreme Startup* ist ein *Programmierspiel*
-
-					bei dem die Mitspieler
-
-					in einer *Sprache ihrer Wahl*
-
-					eine *Web Applikation* entwickeln
-
-					<!-- https://github.com/rchatley/extreme_startup -->
+				<section>
+					<strong>Extreme Startup</strong><br/>
+					ist ein <strong>Programmierspiel</strong><br/>
+					bei dem die Mitspieler<br/>
+					in einer <strong>Sprache ihrer Wahl</strong><br/>
+					eine <strong>Web Applikation</strong> entwickeln<br/>
+					die <strong>Fragen beantwortet</strong>
 				</section>
 
-				<section data-markdown>
-					## Was muss die Applikation können?
-
-					Die Applikation muss Fragen beantworten, die
-					ein zentraler *Game Server* in regelmäßigen
-					abständen stellt.
-
-					Im Verlauf des Spiels kommen *immer weitere
-					Fragen* hinzu, die eine *kontinuierliche
-					Erweiterung der Applikation* erforderlich machen.
+				<section>
+					<h2>Fragen?</h2>
+					<h3>Was für Fragen?</h3>
 				</section>
 
-				<section data-markdown>
-					## Was sind das für Fragen?
-
-					Es handelt sich um *Klartextfragen*
-					die im Request als *Query Parameter* (q)
-					übergeben werden.
-
-					Die Applikation muss diese parsen und
-					mit der passenden Strategie beantworten.
+				<section>
+					Ein <strong>Spielserver</strong><br/>
+					sendet kontinuierlich <strong>HTTP Anfragen</strong><br/>
+					an <strong>alle registrierten Web Applikationen</strong>
 				</section>
 
-				<section data-markdown>
-					## Punktesystem
-
-					Der Game Server vergibt Punkte auf Basis der empfangenen Antwort
-
-					* korrekte Antwort = +10 Punkte
-					* falsche Antwort = -10 Punkte
-					* Fehler (5xx) = -50 Punkte
-					* keine Antwort = -20 Punkte
+				<section>
+					Die Anfragen enthalten einen<br/>
+					<strong>Query Parameter <code>q</code></strong><br/>
+					in dem eine <strong>Klartextfrage</strong> steht
 				</section>
 
-				<section data-markdown>
-					## Ziel des Spiels
-
-					Soviele Punkte sammeln wie möglich
+				<section>
+					Die <strong>Web Applikation</strong><br/>
+					muss die <strong>Frage parsen</strong><br/>
+					und mit einer <strong>passenden Strategie</strong><br/>
+					die <strong>richtige Antwort ermitteln</strong><br/>
+					und als <strong>Klartext retournieren</strong>
 				</section>
 
-				<section data-markdown>
-					## Ist das alles?
+				<section>
+					<h3>Beispiel (Warmup)</h3>
 
-					Ja,
+					<strong>Anfrage des Spielservers</strong>
+					<pre><code>
+GET http://192.168.0.123/extreme?q=What%27s+your+name%3F HTTP/1.1
+...
+					</code></pre>
 
-					das reicht auch,
+					<strong>Antwort der Web Applikation</strong>
+					<pre><code>
+HTTP/1.1 200 OK
+...
 
-					ihr werdet schon sehen...
+Torsten
+					</code></pre>
+
+					<small>Im richtigen Spiel sind die erwarteten Antworten eindeutig!</small>
 				</section>
 
-				<section data-markdown>
-					## OK, kann los gehen...
+				<section>
+					<h2>Und dann?</h2>
 				</section>
 
-				<section data-markdown>
-					## Vorbereitung
-
-					* Client Rechner muss Game Server erreichen können
-						* Ping
-						* Score Board
-					* Game Server muss Client Rechner erreichen können
+				<section>
+					Der <strong>Spielserver</strong><br/>
+					wertet die <strong>empfangenen Antworten</strong> aus<br/>
+					und vergibt wie folgt <strong>Punkte</strong><br/>
+					<br/>
+					<table>
+						<tr><th>+ 10 Punkte</th><td>bei korrekter Antwort</td></tr>
+						<tr><th>- 10 Punkte</th><td>bei falscher Antwort</td></tr>
+						<tr><th>- 20 Punkte</th><td>bei keiner Antwort</td></tr>
+						<tr><th>- 50 Punkte</th><td>bei einem Fehler</td></tr>
+						<tr></tr>
+					</table>
 				</section>
 
-				<section data-markdown>
-					## Warm up
+				<section>
+					<p>Nach einer vorher definierten Zeit endet das Spiel.</p>
+					<p>Der Spieler bzw. das Team<br/>
+						mit den meisten Punkten gewinnt.</p>
+				</section>
 
-					Applikation aufsetzen und ans Laufen bringen
+				<section>
+					<h2>Ist das alles?</h2>
+				</section>
 
-					* Game Server stellt kontinuierlich eine fixe Frage
-					* Applikation muss diese (sinnvoll) beantworten
+				<section>
+					<p>Im Prinzip schon...</p>
+				</section>
+
+				<section>
+					...bis auf die Tatsache, dass im Verlauf
+					des Spiels <strong>immer neue und schwierigere Fragen</strong>
+					hinzukommen, die eine <strong>kontinuierliche
+					Erweiterung der Applikation</strong> erforderlich machen...
+				</section>
+
+				<section>
+					...und dass die Beschreibung <strong>kontinuierlich</strong><br/>
+					durchaus ernst zu nehmen ist...
+				</section>
+
+				<section>
+					<p>...aber Ihr kriegt das hin!</p>
+
+					<small class="fragment">Schließlich seid ihr OPITZ Consultants ;)</small>
+				</section>
+
+				<section>
+					<h2>OK, kann los gehen</h2>
+				</section>
+
+				<section>
+					<h2>Ablauf</h2>
+
+					<ol>
+						<li class="fragment">Teamfindung</li>
+						<li class="fragment">Warm up</li>
+						<li class="fragment">Spielrunde (45 Minuten)</li>
+						<li class="fragment">Vorstellung der Lösungen /<br/>Diskussion der Erfahrungen</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Warm up</h2>
+
+					<ul>
+						<li>Projekt aufsetzen</li>
+						<li>Web Applikation starten</li>
+						<li>URL im Spielserver registrieren<br/>
+							<a href="http://192.168.0.1/extremestartup/register">http://192.168.0.1/extremestartup/register</a>
+						</li>
+						<li>Anfrage entgegennehmen und beantworten</li>
+					</ul>
+ 				</section>
+
+				<section>
+					<h2>Start des Spiels</h2>
+
+					<strong>Scoreboard</strong>
+					<a href="http://192.168.0.1/extremestartup/scoreboard">http://192.168.0.1/extremestartup/scoreboard</a>
 				</section>
 			</div>
 
