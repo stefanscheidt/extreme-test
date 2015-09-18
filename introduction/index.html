@@ -42,7 +42,7 @@
 			<div class="slides">
 				<section>
 					<h1>Extreme Startup</h1>
-					<h2>SD-/MSA-Days 2015</h2>
+					<h2>SD und MSA Days 2015</h2>
 				</section>
 
 				<section>
@@ -55,7 +55,7 @@
 					ist ein <strong>Programmierspiel</strong><br/>
 					bei dem die Mitspieler<br/>
 					in einer <strong>Sprache ihrer Wahl</strong><br/>
-					eine <strong>Web Applikation</strong> entwickeln<br/>
+					eine <strong>Web-Applikation</strong> entwickeln<br/>
 					die <strong>Fragen beantwortet</strong>
 				</section>
 
@@ -66,20 +66,20 @@
 
 				<section>
 					Ein <strong>Spielserver</strong><br/>
-					sendet kontinuierlich <strong>HTTP Anfragen</strong><br/>
-					an <strong>alle registrierten Web Applikationen</strong>
+					sendet kontinuierlich <strong>HTTP-Anfragen</strong><br/>
+					an <strong>alle registrierten Web-Applikationen</strong>
 				</section>
 
 				<section>
 					Die Anfragen enthalten einen<br/>
-					<strong>Query Parameter <code>q</code></strong><br/>
+					<strong>Query-Parameter <code>q</code></strong><br/>
 					in dem eine <strong>Klartextfrage</strong> steht
 				</section>
 
 				<section>
-					Die <strong>Web Applikation</strong><br/>
+					Die <strong>Web-Applikation</strong><br/>
 					muss die <strong>Frage parsen</strong><br/>
-					und mit einer <strong>passenden Strategie</strong><br/>
+					mit einer <strong>passenden Strategie</strong><br/>
 					die <strong>richtige Antwort ermitteln</strong><br/>
 					und als <strong>Klartext retournieren</strong>
 				</section>
@@ -114,12 +114,13 @@ Torsten
 					und vergibt wie folgt <strong>Punkte</strong><br/>
 					<br/>
 					<table>
-						<tr><th>+ 10 Punkte</th><td>bei korrekter Antwort</td></tr>
-						<tr><th>- 10 Punkte</th><td>bei falscher Antwort</td></tr>
+						<tr><th>+ 10 .. 60 Punkte</th><td>bei korrekter Antwort</td></tr>
+						<tr><th>- 1 * Punkte für Frage / Leaderboard-Position</th><td>bei falscher Antwort</td></tr>
 						<tr><th>- 20 Punkte</th><td>bei keiner Antwort</td></tr>
 						<tr><th>- 50 Punkte</th><td>bei einem Fehler</td></tr>
 						<tr></tr>
 					</table>
+					<small>Siehe <a href="https://github.com/rchatley/extreme_startup/blob/master/lib/extreme_startup/scoreboard.rb" target="_blank">scoreboard.rb</a></small>
 				</section>
 
 				<section>
@@ -155,7 +156,7 @@ Torsten
 				</section>
 
 				<section>
-					<h2>OK, kann los gehen</h2>
+					<h2>OK, es kann los gehen ...</h2>
 				</section>
 
 				<section>
@@ -172,11 +173,11 @@ Torsten
 				<section>
 					<h2>Vorbereitete<br/>Projekt Setups</h2>
 
-					<a href="https://github.com/stefanscheidt/extreme-test">https://github.com/stefanscheidt/extreme-test</a>
+					<a href="https://github.com/stefanscheidt/extreme-test" target="_blank">https://github.com/stefanscheidt/extreme-test</a>
 
 					<ul>
-						<li>Spring WebMVC / Maven</li>
-						<li>SpringBoot</li>
+						<li>Spring Web MVC / Maven</li>
+						<li>Spring Boot / Maven</li>
 						<li>Groovy / Gradle</li>
 					</ul>
 				</section>
@@ -186,9 +187,9 @@ Torsten
 
 					<ul>
 						<li>Projekt aufsetzen</li>
-						<li>Web Applikation starten</li>
+						<li>Web-Applikation starten</li>
 						<li>URL im Spielserver registrieren<br/>
-							<a href="http://192.168.0.1/extremestartup/register">http://192.168.0.1/extremestartup/register</a>
+							<a href="http://192.168.0.1/extremestartup/register" target="_blank">http://192.168.0.1/extremestartup/register</a>
 						</li>
 						<li>Anfrage entgegennehmen und beantworten</li>
 					</ul>
